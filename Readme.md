@@ -12,3 +12,5 @@ GitHub has webhooks that allows any  change made to a repository to be notified 
 After any PR is merged GitHub will send the payload to a remote endpoint, each file must follow a Jekyll style header in order to enrich the content with anything that a blog post might need, the content and metadata it's then stored into a DynamoDB database ready to be served.
 Any update to the files will be process and the content in the DB updated, I don't have a plan to support delete yet, I'll think of something once everything it's up an running.
 
+### Roadmap
+1. Have the github intergation done and deployed
