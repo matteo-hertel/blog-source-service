@@ -13,4 +13,4 @@ After any PR is merged GitHub will send the payload to a remote endpoint, each f
 Any update to the files will be process and the content in the DB updated, I don't have a plan to support delete yet, I'll think of something once everything it's up an running.
 
 ### Roadmap
-1. Have the github intergation done and deployed
+1. Have the GitHub intergation done and deployed
