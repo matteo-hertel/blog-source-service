@@ -14,3 +14,5 @@ Any update to the files will be process and the content in the DB updated, I don
 
 ### Roadmap
 1. Have the GitHub intergation done and deployed
+2. Create a service that will expose some RESTful endpoint to serve the content of the blog
+
