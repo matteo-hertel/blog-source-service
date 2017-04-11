@@ -16,4 +16,4 @@ Any update to the files will be process and the content in the DB updated, I don
 1. Have the GitHub intergation done and deployed
 2. Create a service that will expose some RESTful endpoint to serve the content of the blog
 3. Create the FrontEnd for the blog, it will be a Polymer PWA
-
+4. Store the content in a better storage system, for now I'm thinking ElastiSeatch
