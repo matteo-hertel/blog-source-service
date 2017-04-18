@@ -18,3 +18,6 @@ Any update to the files will be process and the content in the DB updated, I don
 3. Create the FrontEnd for the blog, it will be a Polymer PWA
 4. Store the content in a better storage system, for now I'm thinking ElastiSeatchi
 5. See how it goes and improve it!
+
+### Future plans
+one of the first thing that I'll add is TypeScript support, I love typescript and I definelty want it in
