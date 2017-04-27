@@ -20,10 +20,17 @@ provider:
 
 functions:
   webhook:
-    handler: endpoints/webhook.process
+    handler: endpoints/webhook.test
     events:
         - http:
             path : webhook
+            method: post
+            cors : true
+  prprocess:
+    handler: endpoints/gitPr.process
+    events:
+        - http:
+            path : incoming-pr
             method: post
             cors : true
 
