@@ -11,13 +11,14 @@ module.exports.process = (e, context, callback) => {
             webhook
                 .getRepoAndOwner(pr)
                 .then((data) => {
-                    console.log(commit.getFilesFromCommitHash(data.owner, data.name, pr.number))
+                    commit.getFilesFromCommitHash(data.owner, data.name, pr.number)
+                        .then()
                 }).catch(exc => {
                     console.log(exc)
                 });
         }).catch(exc => {
-                    console.log(exc)
-                });
+            console.log(exc)
+        });
 
 
     // console.log(JSON.stringify(body, null, 4));
