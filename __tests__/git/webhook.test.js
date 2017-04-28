@@ -10,7 +10,7 @@ describe("Webhook Module", () => {
     it('should contain the pull request object', () => {
         return webhook.acceptValidPRs(require(`${__dirname}/../../mocks/webhooks/mergedPR.json`))
             .then((pr) => {
-                expect(pr.id).toBeDefined();
+                expect(pr.pull_request.id).toBeDefined();
             });
     });
     it('should reject and return false if the pr object does not exitsts ', () => {

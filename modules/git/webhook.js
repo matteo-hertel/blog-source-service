@@ -1,33 +1,32 @@
 const acceptValidPRs = (payload) => {
 
-    return new Promise((resolve, reject)=>{
+    return new Promise((resolve, reject) => {
         const pr = payload.pull_request || false;
-        if(!payload.hasOwnProperty("pull_request")){
+        if (!payload.hasOwnProperty("pull_request")) {
             return reject('Payload object does not have a pull_request property');
         }
-        if(payload.pull_request.state !== 'closed'){
+        if (payload.pull_request.state !== 'closed') {
             return reject("Pull request is not closed");
         }
-        if(payload.pull_request.merged !== true){
+        if (payload.pull_request.merged !== true) {
             return reject("Pull request is not merged");
         }
-        return resolve(payload.pull_request);
+        return resolve(payload);
     });
 };
 const getMergeSha = (payload) => {
 
-    return new Promise((resolve, reject)=>{
-        try{
+    return new Promise((resolve, reject) => {
+        try {
             resolve(payload.pull_request.merge_commit_sha);
-        }catch(exc){
+        } catch (exc) {
             reject("Merge SHA does not exists");
         }
     });
 };
 const getRepoAndOwner = (payload) => {
-
-    return new Promise((resolve, reject)=>{
-        try{
+    return new Promise((resolve, reject) => {
+        try {
             var repoData = {
                 name: "",
                 owner: ""
@@ -36,7 +35,7 @@ const getRepoAndOwner = (payload) => {
             repoData.owner = repoName[0];
             repoData.name = repoName[1];
             resolve(repoData);
-        }catch(exc){
+        } catch (exc) {
             reject("Cannot extract repo owner and name");
         }
     });
