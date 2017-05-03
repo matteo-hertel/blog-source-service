@@ -9,6 +9,11 @@ const getFile = (author, repo, branch, path) => {
             };
         });
 };
+const getFiles = (files) => {
+    return Promise.all(file.map((file) =>{
+        return getFile = (file.author, file.repo, file.branch, file.path);
+    }))
+};
 const getFolder = (author, repo, branch, path) => {
     return _get(author, repo, branch, path)
         .then((files) => {
