@@ -6,7 +6,8 @@ addons:
   code_climate:
     repo_token: "4e06b927177b0c1b5b3c9ad847a177a2aee50bfee8d18acdcd07302b2a466be3"
 before_script:
-- npm install -g yarn
+- npm install -g yarn codeclimate-test-reporter
 - yarn
 script:
-- yarn test -u
+- yarn coverage
+- codeclimate-test-reporter < ./coverage/lcov.info

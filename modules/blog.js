@@ -34,8 +34,8 @@ function getStorable(author, repo, branch, file) {
                 payload.seo = (meta.seo || `${date}-${name}`);
                 payload.body = html;
                 payload.meta = meta;
-                payload.createdDate = moment(date).unix();
-                payload.updatedDate = moment().unix();
+                payload.createdDate = moment.utc(date).unix();
+                payload.updatedDate = moment.utc().unix();
                 let out = yield payload;
                 return out;
             });
