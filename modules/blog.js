@@ -3,7 +3,7 @@ require('dotenv').config({
 });
 
 const git = require(`${__dirname}/git/fs`);
-const markdown = require(`${__dirname}/markdownProcessor`);
+const markdown = require(`${__dirname}/markDownProcessor`);
 const webhook = require(`${__dirname}/git/webhook`);
 const commit = require(`${__dirname}/git/commit`);
 const moment = require("moment");
