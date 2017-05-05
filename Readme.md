@@ -1,9 +1,7 @@
 ## Blog Data Service
 
 [![Build Status](https://travis-ci.org/matteo-hertel/blog-source-service.svg?branch=master)](https://travis-ci.org/matteo-hertel/blog-source-service)
-
 [![Test Coverage](https://codeclimate.com/github/matteo-hertel/blog-source-service/badges/coverage.svg)](https://codeclimate.com/github/matteo-hertel/blog-source-service/coverage)
-
 [![Code Climate](https://codeclimate.com/github/matteo-hertel/blog-source-service/badges/gpa.svg)](https://codeclimate.com/github/matteo-hertel/blog-source-service)
 
 ### What's this
