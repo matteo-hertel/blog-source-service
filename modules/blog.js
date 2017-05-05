@@ -13,6 +13,7 @@ const storablePayload = {
     name: "",
     seo: "",
     body: "",
+    meta: {},
     createdDate: "",
     updatedDate: ""
 };
@@ -22,10 +23,17 @@ function getStorable(author, repo, branch, file) {
         .then((file) => {
             return co(function* () {
                 let payload = Object.assign({}, storablePayload);
+
                 let [date, name] = file.name.replace(/.md/g, "").split("_");
-                payload.name = _makeTitle(name);
-                payload.seo = `${date}-${name}`;
-                payload.body = markdown.convert(file.content);
+                let {
+                    html,
+                    meta
+                } = yield markdown.convert(file.content);
+
+                payload.name = (meta.title || _makeTitle(name));
+                payload.seo = (meta.seo || `${date}-${name}`);
+                payload.body = html;
+                payload.meta = meta;
                 payload.createdDate = moment(date).unix();
                 payload.updatedDate = moment().unix();
                 let out = yield payload;

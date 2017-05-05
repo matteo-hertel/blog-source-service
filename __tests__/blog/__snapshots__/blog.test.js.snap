@@ -3,23 +3,21 @@
 exports[`processedPR 1`] = `
 Array [
   Object {
-    "body": "<h1>Test Webhook</h1>
-
-<p>the copy of the test post will go here for testing the webhook</p>",
+    "body": "<h1 id=test-webhook>Test Webhook</h1><p>the copy of the test post will go here for testing the webhook",
     "createdDate": 1487016000,
+    "meta": Object {},
     "name": "Test Post2 Seo",
     "seo": "2017-02-14-test-post2-seo",
-    "updatedDate": 1494007174,
+    "updatedDate": 1482363367071,
   },
 ]
 `;
 
 exports[`storableFile 1`] = `
 Object {
-  "body": "<h1>Test Post</h1>
-
-<p>the copy of the test post will go here</p>",
+  "body": "<h1 id=test-post>Test Post</h1><p>the copy of the test post will go here",
   "createdDate": 1485460800,
+  "meta": Object {},
   "name": "Test Post Seo",
   "seo": "2017-01-27-test-post-seo",
   "updatedDate": 1482363367071,

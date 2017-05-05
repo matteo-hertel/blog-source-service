@@ -1,31 +1,14 @@
 const markdownProcessor = require(`${__dirname}/../../modules/markDownProcessor`);
+const filePath = `${__dirname}/../../mocks/md/dummy.md`;
+const fs = require("fs");
 describe("Markdown Module", () => {
-    it('should return HTML from markdown input', () => {
-        let markdown = `# H1
-## H2
-### H3`;
-        let html = `<h1>H1</h1>
-
-<h2>H2</h2>
-
-<h3>H3</h3>`;
-        markdownProcessor.convert(markdown)
-        .then((converted) => {
-            expect(converted).toBe(html);
+    it('should return HTML and metadata from markdown input', () => {
+        fs.readFile(filePath, 'utf8', (err, file) => {
+            if (err) return console.log(err);
+            markdownProcessor.convert(file)
+            .then((data) => {
+                expect(data).toMatchSnapshot("parsedMarkdown");
+            })
         });
-
-    });
-    it('should invoke catch on error', () => {
-        let markdown = ``;
-        let html = `<h1>H1</h1>
-
-<h2>H2</h2>
-
-<h3>H3</h3>`;
-        markdownProcessor.convert(markdown)
-        .catch((exc) => {
-            expect(exc).toBeDefined();
-        });
-
     });
 });

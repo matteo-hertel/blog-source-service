@@ -16,8 +16,11 @@ describe("Blog Module", () => {
     it('should process correctly an incoming PR', () => {
     return blog.processIncomingData(mockPayload)
     .then(data => {
-        data.updatedDate =  1482363367071;
-        expect(data).toMatchSnapshot("processedPR");
+        let fixedData = data.map((post) => {
+            post.updatedDate =  1482363367071;
+            return post;
+        })
+        expect(fixedData).toMatchSnapshot("processedPR");
     })
 
     });
