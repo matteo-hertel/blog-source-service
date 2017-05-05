@@ -4,7 +4,7 @@ exports[`processedPR 1`] = `
 Array [
   Object {
     "body": "<h1 id=test-webhook>Test Webhook</h1><p>the copy of the test post will go here for testing the webhook",
-    "createdDate": 1487016000,
+    "createdDate": 1487030400,
     "meta": Object {},
     "name": "Test Post2 Seo",
     "seo": "2017-02-14-test-post2-seo",
@@ -16,7 +16,7 @@ Array [
 exports[`storableFile 1`] = `
 Object {
   "body": "<h1 id=test-post>Test Post</h1><p>the copy of the test post will go here",
-  "createdDate": 1485460800,
+  "createdDate": 1485475200,
   "meta": Object {},
   "name": "Test Post Seo",
   "seo": "2017-01-27-test-post-seo",
