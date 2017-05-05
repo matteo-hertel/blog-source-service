@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`storableFile 1`] = `
 Object {
   "body": "<h1>Test Post</h1>
@@ -8,36 +10,4 @@ Object {
   "seo": "2017-01-27-test-post-seo",
   "updatedDate": 1482363367071,
 }
-`;
-
-exports[`storableFiles 1`] = `
-Array [
-  Object {
-    "body": "<h1>Test Post</h1>
-
-<p>the copy of the test post will go here</p>",
-    "createdDate": 1485460800,
-    "name": "Test Post Seo",
-    "seo": "2017-01-27-test-post-seo",
-    "updatedDate": 1482363367071,
-  },
-  Object {
-    "body": "<h1>Test Post</h1>
-
-<p>the copy of the test post will go here</p>",
-    "createdDate": 1485547200,
-    "name": "Test Post2 Seo",
-    "seo": "2017-01-28-test-post2-seo",
-    "updatedDate": 1482363367071,
-  },
-  Object {
-    "body": "<h1>Test Webhook</h1>
-
-<p>the copy of the test post will go here for testing the webhook</p>",
-    "createdDate": 1487016000,
-    "name": "Test Post2 Seo",
-    "seo": "2017-02-14-test-post2-seo",
-    "updatedDate": 1482363367071,
-  },
-]
 `;

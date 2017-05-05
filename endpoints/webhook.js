@@ -1,12 +1,17 @@
-require('dotenv').config({path: `${__dirname}/../.env`});
+require('dotenv').config({
+    path: `${__dirname}/../.env`
+});
+const blog = require(`${__dirname}/../modules/blog`);
 
 module.exports.process = (e, context, callback) => {
     const body = JSON.parse(e.body);
-    console.log(JSON.stringify(body, null, 4));
-    callback(null, {
-        statusCode:200,
-        body : JSON.stringify({
-            process : "completed"
-        })
+
+    return blog.processIncomingData(body)
+    .then(data => {
+        console.log(data);
+        return data;
+    })
+    .catch((exc) => {
+        console.log(exc);
     });
 };

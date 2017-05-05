@@ -4,12 +4,10 @@ require('dotenv').config({
 
 const git = require(`${__dirname}/git/fs`);
 const markdown = require(`${__dirname}/markdownProcessor`);
+const webhook = require(`${__dirname}/git/webhook`);
+const commit = require(`${__dirname}/git/commit`);
 const moment = require("moment");
 const co = require("co");
-
-const author = "matteo-hertel";
-const repo = "blog";
-const branch = "master";
 
 const storablePayload = {
     name: "",
@@ -19,10 +17,10 @@ const storablePayload = {
     updatedDate: ""
 };
 
-const getStorable = (file) => {
+function getStorable(author, repo, branch, file) {
     return git.getFile(author, repo, branch, file)
         .then((file) => {
-            return co(function*() {
+            return co(function* () {
                 let payload = Object.assign({}, storablePayload);
                 let [date, name] = file.name.replace(/.md/g, "").split("_");
                 payload.name = _makeTitle(name);
@@ -35,21 +33,29 @@ const getStorable = (file) => {
             });
         });
 };
-const reIndexPosts = () => {
-    return git.getFolder(author, repo, branch, "/test/posts")
-        .then((files) => {
-            return co(function*() {
-                let out = yield files.map((item) => {
-                    return getStorable(item.path);
-                });
-                return out;
-            });
+
+function processIncomingData(body) {
+    return co(function* () {
+        const pr = yield webhook.acceptValidPRs(body);
+        const {
+            author,
+            repo
+        } = yield webhook.getRepoAndOwner(pr);
+        let files = yield commit.getFilesFromCommitHash(author, repo, pr.number)
+        return yield files.map((file) => {
+            return getStorable(
+                author,
+                repo,
+                "master",
+                file.filename
+            )
         });
-};
+    });
+}
 
 module.exports = {
     getStorable,
-    reIndexPosts
+    processIncomingData
 };
 
 const _makeTitle = (string) => {
