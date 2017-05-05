@@ -33,7 +33,7 @@ describe("Git Module", () => {
             }
             ])
             .then((files) => {
-                expect(file).toHaveLength(2);
+                expect(files).toHaveLength(2);
 
             });
     });

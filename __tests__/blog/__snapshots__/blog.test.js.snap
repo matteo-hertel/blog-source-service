@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`processedPR 1`] = `
+Array [
+  Object {
+    "body": "<h1>Test Webhook</h1>
+
+<p>the copy of the test post will go here for testing the webhook</p>",
+    "createdDate": 1487016000,
+    "name": "Test Post2 Seo",
+    "seo": "2017-02-14-test-post2-seo",
+    "updatedDate": 1494007174,
+  },
+]
+`;
+
 exports[`storableFile 1`] = `
 Object {
   "body": "<h1>Test Post</h1>

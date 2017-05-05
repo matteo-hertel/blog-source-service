@@ -11,7 +11,7 @@ describe("Commit Module", () => {
         const pr = require(`${__dirname}/../../mocks/webhooks/mergedPR.json`);
         return webhook.getRepoAndOwner(pr)
             .then((data) => {
-                return commit.getFilesFromCommitHash(data.owner, data.name, pr.number)
+                return commit.getFilesFromCommitHash(data.author, data.repo, pr.number)
                     .then((files) => {
                         expect(files.length).toBeTruthy();
                     });

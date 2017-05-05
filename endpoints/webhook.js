@@ -11,7 +11,4 @@ module.exports.process = (e, context, callback) => {
         console.log(data);
         return data;
     })
-    .catch((exc) => {
-        console.log(exc);
-    });
 };

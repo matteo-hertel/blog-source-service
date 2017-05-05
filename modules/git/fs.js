@@ -10,9 +10,9 @@ const getFile = (author, repo, branch, path) => {
         });
 };
 const getFiles = (files) => {
-    return Promise.all(file.map((file) =>{
-        return getFile = (file.author, file.repo, file.branch, file.path);
-    }))
+    return Promise.all(files.map((file) =>{
+        return getFile(file.author, file.repo, file.branch, file.path);
+    }));
 };
 const getFolder = (author, repo, branch, path) => {
     return _get(author, repo, branch, path)
@@ -22,7 +22,8 @@ const getFolder = (author, repo, branch, path) => {
 };
 module.exports = {
     getFile,
-    getFolder
+    getFolder,
+    getFiles
 };
 
 const _extractFiles = (list) => {

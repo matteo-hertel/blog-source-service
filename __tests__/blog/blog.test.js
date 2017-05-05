@@ -3,6 +3,7 @@ require('dotenv').config({
 });
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
 const blog = require(`${__dirname}/../../modules/blog`);
+const mockPayload = require(`${__dirname}/../../mocks/webhooks/mergedPR.json`);
 
 describe("Blog Module", () => {
     it('should return a storable payload for a given file', () => {
@@ -11,6 +12,14 @@ describe("Blog Module", () => {
             data.updatedDate =  1482363367071;
             expect(data).toMatchSnapshot("storableFile");
         });
+    });
+    it('should process correctly an incoming PR', () => {
+    return blog.processIncomingData(mockPayload)
+    .then(data => {
+        data.updatedDate =  1482363367071;
+        expect(data).toMatchSnapshot("processedPR");
+    })
+
     });
     it('should execute the catch if the file does not exists', () => {
         return blog.getStorable("does/not/exists")
