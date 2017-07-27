@@ -4,7 +4,7 @@ sudo: required
 dist: trusty
 addons:
   code_climate:
-    repo_token: "4e06b927177b0c1b5b3c9ad847a177a2aee50bfee8d18acdcd07302b2a466be3"
+    repo_token: $CODECLIMATE_REPO_TOKEN
 before_script:
 - npm install -g yarn codeclimate-test-reporter
 - yarn
